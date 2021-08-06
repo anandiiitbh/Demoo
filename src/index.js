@@ -19,7 +19,7 @@ http
       res.end();
     }
   })
-  .listen(80);
+  .listen(process.env.PORT || 80);
 
 async function save(data, res) {
   let items = JSON.parse(fs.readFileSync("src/data.json"));
