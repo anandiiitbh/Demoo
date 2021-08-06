@@ -1,6 +1,8 @@
 var http = require("http");
 const fs = require("fs");
 
+const PORT = process.env.PORT || 3000;
+
 http
   .createServer((req, res) => {
     if (req.method === "POST") {
@@ -19,7 +21,7 @@ http
       res.end();
     }
   })
-  .listen(process.env.PORT || 80);
+  .listen(PORT);
 
 async function save(data, res) {
   let items = JSON.parse(fs.readFileSync("src/data.json"));
